@@ -20,7 +20,6 @@ io.on('connection', (socket) => {
     })
     
     
-    
     socket.on('disconnect', () => {
         console.log("Un cliente se nos ha ido") 
     })

@@ -11,12 +11,19 @@ let cursores = [];
 
 
 function setup(){
-    createCanvas(400, 400);
+    createCanvas(650, 550);
     r = int(Math.random()*255)
     g = int(Math.random()*255)
     b = int(Math.random()*255)
     identificador = int(random()*1000)
     console.log("identificador", identificador)
+
+        const applySizeButton = select('#applySizeButton');
+        applySizeButton.mousePressed(changeSize);
+
+        const sizeInput = select('#sizeInput');
+        size = parseInt(sizeInput.value());
+        
 }
 
 function draw(){
@@ -32,6 +39,30 @@ function draw(){
         ellipse(elemento.x, elemento.y, elemento.size, elemento.size)
     })
 }
+
+function changeColor(newColor){
+    const color = hextoRgb(newColor);
+    r = color.r;
+    g = color.g;
+    b = color.b;
+}
+
+function changeSize() {
+    const sizeInput = select('#sizeInput');
+    size = parseInt(sizeInput.value());
+}
+
+function hextoRgb(hex){
+    hex = hex.replace(/^#/,'');
+
+    const bigint = parseInt(hex,16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    
+    return {r, g, b}
+}
+
 
 function mousePressed(){
     const elemento = {
@@ -57,6 +88,14 @@ function mouseDragged(){
     }
     socket.emit('enviar-cursor', elemento)
 }
+
+
+
+
+
+socket.on("Change Color", (color) => {
+    newColor = color
+})
 
 socket.on('elemento-recibido', (elemento) => {
     console.log('recibiendo-elemnto:', elemento)
