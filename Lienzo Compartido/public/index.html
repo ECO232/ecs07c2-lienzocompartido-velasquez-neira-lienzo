@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P5JS, SocketIO & Express</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Titan+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Cliente</h1>
+    <h1>Ellipse Art Creator</h1>
+    <label id="title" for="colorPicker">Select your Size</label>
     <input type="number" id="sizeInput" placeholder="Escribe el tamaño">
     <button id="applySizeButton">Aplicar Tamaño</button>
-    <label for="colorPicker">Select your Color</label>
+    <label id="title" for="colorPicker">Select your Color</label>
     <input type="color" id="colorPicker" onchange="changeColor(this.value)">
-    <button id="SaveBtn">"Save Canvas"</button>
+    <button id="SaveBtn">Save Canvas</button>
 
     <br>
     <script src="./client.js"></script>
+    <link rel="stylesheet" href="style.css">
 </body>
 </html>

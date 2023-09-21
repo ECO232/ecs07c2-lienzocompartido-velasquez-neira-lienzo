@@ -10,8 +10,10 @@ let elementos = [];
 let cursores = [];
 
 
+
+
 function setup(){
-    createCanvas(650, 550);
+     createCanvas(650, 550);
     r = int(Math.random()*255)
     g = int(Math.random()*255)
     b = int(Math.random()*255)
@@ -23,11 +25,14 @@ function setup(){
 
         const sizeInput = select('#sizeInput');
         size = parseInt(sizeInput.value());
+
+        saveButton = select('#SaveBtn');
+        saveButton.mousePressed(takeSnapshot)
         
 }
 
 function draw(){
-    background(220);
+    background(10000);
 
     elementos.forEach((elemento) => {
         fill(elemento.r, elemento.g, elemento.b);
@@ -38,6 +43,10 @@ function draw(){
         fill(0, 0, 0);
         ellipse(elemento.x, elemento.y, elemento.size, elemento.size)
     })
+}
+
+function takeSnapshot () {
+    saveCanvas('TroyanHorse', 'jpg')
 }
 
 function changeColor(newColor){
