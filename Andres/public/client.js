@@ -103,7 +103,7 @@ socket.on('elemento-recibido', (elemento) => {
 })
 
 socket.on('cursor-recibido', (elemento) => {
-    console.log('recibiend-cursor:', elemento)
+    console.log('recibiendo-cursor:', elemento)
 
     let cursorIndex = cursores.findIndex((item) => elemento.id == item.id)
 
@@ -114,3 +114,4 @@ socket.on('cursor-recibido', (elemento) => {
     }
 
 })
+
